@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abraham</title>
+</head>
+<body>
+<h1>Welcome Abraham Augustine</h1>
+<h2>Learning Automation using Devops tools</h2>
+<h2>Devops</h2>
+
+<ul>
+    <h3><a href="https://www.jenkins.io/doc/book/">jenkins</a></h3>
+    <h3><a href="https://docs.ansible.com/ansible/latest/cli/ansible-doc.html">Ansible</a></h3>
+    <h3><a href="https://docs.docker.com/get-started/">Docker</a></h3>
+    <h3><a href="https://kubernetes.io/docs/home/">Kubernetes</a></h3>
+    <h3><a href="https://docs.aws.amazon.com/">AWS</a></h3>
+    <h3><a href="https://www.python.org/doc/">Python</a></h3>
+    <h3><a href="https://devdocs.io/bash/">Bash</a></h3>
+    <h3><a href="https://grafana.com/docs/grafana/latest/">Grafana</a></h3>
+</ul>
+
+<h2>Linux</h2>
+
+<ol>
+    <li><h3><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7">RHEL</a></h3></li>
+    <li><h3><a href="https://help.ubuntu.com/">Ubuntu</a></h3></li>
+</ol>
+</body>
+</html>
