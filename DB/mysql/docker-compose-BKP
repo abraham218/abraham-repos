@@ -14,23 +14,5 @@ services:
       - "3306:3306"
     volumes:
       - mysqldata:/var/lib/mysql
-
-  mysql-workbench:
-    image: lscr.io/linuxserver/mysql-workbench:latest
-    container_name: mysql-workbench
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-    volumes:
-      - mysqlworkbench:/config
-    ports:
-      - 3000:3000
-      - 3001:3001
-    cap_add:
-      - IPC_LOCK
-    restart: unless-stopped
-
 volumes:
   mysqldata:
-  mysqlworkbench:
