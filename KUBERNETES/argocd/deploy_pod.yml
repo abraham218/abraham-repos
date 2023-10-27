@@ -6,7 +6,7 @@ metadata:
     app: webapp
   name: webapp
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: webapp
@@ -18,7 +18,7 @@ spec:
         app: webapp
     spec:
       containers:
-        - image: abramdocker/customwebapp:7
+        - image: abramdocker/customwebapp:6
           name: abramapp
           resources: {}
 status: {}
