@@ -1,0 +1,2 @@
+docker build -t flask_docker . 
+docker run -p 5000:5000 -d --name flaskapp flask_docker:latest 
