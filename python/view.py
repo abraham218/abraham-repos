@@ -12,6 +12,11 @@ def home():
 def profile():
     return render_template('profile.html')
 
+##  lines from 15 to 18 are newly added
+@app.route('/cal')
+def cal():
+    return render_template('calculator.html')
+
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
