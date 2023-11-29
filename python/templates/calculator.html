@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EMI Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        input[type="number"], select {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="submit"] {
+            padding: 10px;
+            width: 200px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1>EMI Calculator</h1>
+    <form onsubmit="calculateEMI(); return false;">
+        <label for="principal">Loan Amount:</label>
+        <input type="number" id="principal" name="principal" 
+            placeholder="Enter loan amount in INR" required>
+
+        <label for="interest">Interest Rate:</label>
+        <input type="number" id="interest" name="interest" 
+           placeholder="Enter interest rate in %" required>
+
+        <label for="tenure">Loan Tenure:</label>
+        <select id="tenure" name="tenure" required>
+            <option value="">--Select Loan Tenure--</option>
+            <option value="12">1 Year</option>
+            <option value="24">2 Years</option>
+            <option value="36">3 Years</option>
+            <option value="48">4 Years</option>
+            <option value="60">5 Years</option>
+        </select>
+
+        <input type="submit" value="Calculate EMI">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateEMI() {
+            // Get input values
+            let principal = document.getElementById('principal').value;
+            let interest = document.getElementById('interest').value;
+
+            let tenure = document.getElementById('tenure').value;
+
+            // Calculate EMI
+            let monthlyInterest = interest / 1200; // 12 months * 100%
+            let monthlyPayment = 
+ (principal * monthlyInterest) / (1 - (1 / Math.pow(1 + monthlyInterest, tenure)
+ ));
+            let totalPayment = monthlyPayment * tenure;
+
+            // Display result
+            document.getElementById('result').innerHTML = `
+                <h2>EMI Calculation Result</h2>
+                <p>Loan Amount: INR ${principal}</p>
+                <p>Interest Rate: ${interest}%</p>
+                <p>Loan Tenure: ${tenure} months</p>
+                <p>Monthly EMI: INR ${monthlyPayment.toFixed(2)}</p>
+                <p>Total Payment: INR ${totalPayment.toFixed(2)}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
