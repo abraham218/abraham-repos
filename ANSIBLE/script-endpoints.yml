@@ -3,7 +3,6 @@
   become: true
   tasks:
     - name: Clone GitHub repository
-      git:
-        repo: https://github.com/abraham218/abraham-repos.git
-        dest: /tmp/
-
+      ansible.builtin.command: git clone https://github.com/abraham218/abraham-repos.git
+      args:
+        chdir: /workspace/ansible/
