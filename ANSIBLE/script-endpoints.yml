@@ -1,8 +1,10 @@
 ---
 - hosts: endpoint
-  become: true
+  become: yes
   tasks:
     - name: Clone GitHub repository
-      ansible.builtin.command: git clone https://github.com/abraham218/abraham-repos.git
-      args:
-        chdir: /workspace/ansible/
+      git:
+        repo: https://github.com/abraham218/abraham-repos.git
+        dest: /workspace/ansible/
+        clone: yes
+        update: yes
