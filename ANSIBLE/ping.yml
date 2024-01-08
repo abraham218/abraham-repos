@@ -1,0 +1,8 @@
+---
+- name: connect remote servers
+  hosts: remote
+  gather_facts: no
+  become: false
+  tasks:
+    - name: pinging Host
+      ansible.builtin.ping:
