@@ -6,12 +6,8 @@
       git:
         repo: https://github.com/abraham218/abraham-repos.git
         dest: /tmp/
-
-
-
-
     - name: Run the endpoint checker script
-      shell: /script-endpoints.sh
+      shell: /tmp/abraham-repos/ANSIBLE/scripts/script_endpoints.sh
       register: script_output
 
     - debug:
