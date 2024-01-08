@@ -1,0 +1,25 @@
+---
+- name: Check Server Health
+  hosts: remote
+  gather_facts: true
+
+  tasks:
+    - name: Get CPU Facts
+      ansible.builtin.debug:
+        msg: "CPU Facts: {{ ansible_processor_cores }} cores, {{ ansible_processor_vcpus }} vCPUs"
+
+    - name: Check Memory
+      ansible.builtin.debug:
+        msg: "Total Memory: {{ ansible_memtotal_mb }} MB, Free Memory: {{ ansible_memfree_mb }} MB, Used Memory: {{ ansible_memtotal_mb | int - ansible_memfree_mb | int }} MB"
+
+    - name: Check CPU Usage
+      ansible.builtin.shell: top -bn1 | grep 'Cpu(s)' | awk '{print $2 + $4}' # This command retrieves combined CPU usage
+      register: cpu_usage_raw
+
+    - name: Calculate CPU Usage
+      set_fact:
+        cpu_usage: "{{ cpu_usage_raw.stdout }}"
+
+    - name: Display CPU Usage
+      ansible.builtin.debug:
+        msg: "CPU Usage: {{ cpu_usage }}%"
