@@ -1,0 +1,6 @@
+groups:
+ - name: Linux_Nodes_Status
+   rules:
+   - alert: InstanceDown
+     expr: up == 0
+     for: 1m
