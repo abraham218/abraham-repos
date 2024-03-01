@@ -1,0 +1,18 @@
+node-exporter# cat docker-compose.yaml
+version: '3'
+volumes:
+  node_exporter_data: {}
+services:
+  node_exporter:
+    image: prom/node-exporter
+    ports:
+      - "9100:9100"
+    container_name: node_exporter
+    volumes:
+      - node_exporter_data:/host:ro
+
+
+Or 
+
+docker run -d -p 9100:9100 --name=node_exporter prom/node-exporter
+

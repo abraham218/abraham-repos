@@ -1,0 +1,9 @@
+[Unit]
+Description=Node Exporter Agent
+[Service]
+User=root
+#ExecStart=/workspace2024/docker-grafana-prometheus/node_exporter-1.7.0.linux-amd64/node_exporter
+ExecStart=/usr/local/bin/node_exporter
+Restart=always
+[Install]
+WantedBy=multi-user.target
